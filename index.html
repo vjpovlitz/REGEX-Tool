@@ -1,0 +1,136 @@
+<!--
+  REGEX Expression Generator (.NET)
+  
+  This is a web-based tool for generating .NET-compatible regular expressions.
+  The application provides an interactive interface for:
+  - Visual text selection and pattern creation
+  - Multiple capture types (literal, email, phone, etc.)
+  - Live preview of regex matches
+  - Export and copy functionality
+  
+  Structure:
+  - Container with main sections for sample text, captures, flags, and results
+  - Context menu for text selection
+  - Regex keyboard for special character input
+  - Responsive design with modern UI elements
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>REGEX Expression Generator (.NET)</title>
+  <!-- External stylesheets -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+  <!-- Main container for all application components -->
+  <div class="container">
+    <h1>REGEX Expression Generator (.NET)</h1>
+    
+    <!-- Sample text section - where users input their test text -->
+    <div class="section" id="sample-text-section">
+      <h3>Sample Text</h3>
+      <div id="error-display" class="error-display"></div>
+      <div id="instructions">Right-click to set bounds or select text to add captures.</div>
+      <div id="sample-text" class="sample-text" contenteditable="true" data-placeholder="Enter your sample text here..."></div>
+    </div>
+
+    <!-- Captures section - for defining regex capture groups -->
+    <div class="section" id="captures-section">
+      <h3>Captures</h3>
+      <div id="capture-list">
+        <!-- Dynamic capture elements are inserted here -->
+      </div>
+      <button id="add-capture" class="action-button">
+        <span aria-hidden="true">Add Capture</span>
+        <span></span>
+        <span>Add Capture</span>
+      </button>
+    </div>
+
+    <!-- Regex flags section - for controlling regex behavior -->
+    <div class="section" id="flags-section">
+      <h3>Flags</h3>
+      <label><input type="checkbox" id="flag-i"> Case-insensitive (i)</label>
+      <label><input type="checkbox" id="flag-g"> Global (g)</label>
+      <label><input type="checkbox" id="flag-m"> Multiline (m)</label>
+      <label><input type="checkbox" id="flag-s"> Singleline (s)</label>
+    </div>
+
+    <!-- User parameters section - for additional regex configuration -->
+    <div class="section" id="user-parameters">
+      <h3>User Parameters</h3>
+      <div class="parameter-group">
+        <label>Multi-Capture Handling:</label>
+        <select id="capture-handling">
+          <option value="or">OR (|)</option>
+          <option value="and">AND (overlap)</option>
+          <option value="between">In Between (.*?)</option>
+        </select>
+        <div class="parameter-description">
+          OR: Matches any of the capture groups
+          AND: Matches where capture groups overlap/intersect
+          In Between: Matches all groups in sequence with any text between them
+        </div>
+      </div>
+    </div>
+
+    <!-- Generated regex display section -->
+    <div class="section" id="regex-section">
+      <h3>Generated Regex</h3>
+      <div id="generated-regex"></div>
+    </div>
+
+    <!-- Preview section - shows regex matches in real-time -->
+    <div class="section" id="preview-section">
+      <h3>Preview</h3>
+      <div id="preview"></div>
+    </div>
+
+    <!-- Export section - buttons for exporting/copying regex -->
+    <div class="section" id="export-section">
+      <button id="export-regex" class="action-button export-button">
+        <span aria-hidden="true"><i class="fas fa-download"></i> Export Regex</span>
+        <span></span>
+        <span><i class="fas fa-download"></i> Export Regex</span>
+      </button>
+      <button id="copy-regex" class="action-button copy-button">
+        <span aria-hidden="true"><i class="fas fa-copy"></i> Copy Regex</span>
+        <span></span>
+        <span><i class="fas fa-copy"></i> Copy Regex</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Context menu for text selection operations -->
+  <div id="context-menu" class="context-menu">
+    <div class="context-menu-item" id="add-selector-context">Add Selector</div>
+    <div class="context-menu-item" id="add-capture-context">Add as Capture</div>
+  </div>
+
+  <!-- Regex keyboard for special character input -->
+  <div id="regex-keyboard" class="regex-keyboard" style="display: none;">
+    <!-- Special regex character buttons -->
+    <button class="regex-key" data-char="\w">\w</button>
+    <button class="regex-key" data-char="\d">\d</button>
+    <button class="regex-key" data-char="\s">\s</button>
+    <button class="regex-key" data-char="*">*</button>
+    <button class="regex-key" data-char="+">+</button>
+    <button class="regex-key" data-char="?">?</button>
+    <button class="regex-key" data-char="^">^</button>
+    <button class="regex-key" data-char="$">$</button>
+    <button class="regex-key" data-char="(">(</button>
+    <button class="regex-key" data-char=")">)</button>
+    <button class="regex-key" data-char=".">.</button>
+    <button class="regex-key" data-char="|">|</button>
+    <button class="regex-key" data-char="[]">[]</button>
+    <button class="regex-key" data-char="{}">{}</button>
+    <button class="regex-key" data-char="\">\</button>
+  </div>
+
+  <!-- Main application script -->
+  <script src="script.js"></script>
+</body>
+</html>

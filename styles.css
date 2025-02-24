@@ -1,0 +1,425 @@
+/*
+ * REGEX Expression Generator (.NET) Styles
+ * 
+ * This stylesheet defines the visual appearance and layout of the Regex Generator tool.
+ * It includes styles for:
+ * - Main layout and containers
+ * - Interactive elements (buttons, inputs)
+ * - Visual feedback elements (highlights, errors)
+ * - Context menu and regex keyboard
+ * - Responsive design adjustments
+ */
+
+/* Base styles and layout */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* Main container styling */
+.container {
+  width: 80%;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Section styling - each major component gets its own card-like container */
+.section {
+  margin-bottom: 20px;
+  background-color: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Typography */
+h1, h3 {
+  color: #444;
+  margin-top: 0;
+}
+
+/* Sample text area styling */
+#sample-text {
+  position: relative;
+  width: 100%;
+  min-height: 100px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-top: 10px;
+  font-size: 16px;
+  line-height: 1.4;
+  white-space: pre-wrap;
+}
+
+/* Captures section styling */
+#captures-section {
+  text-align: left;
+}
+
+/* Individual capture element styling */
+.capture {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
+
+/* Capture input fields styling */
+.capture-text, .custom-pattern {
+  width: 40%;
+  padding: 8px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Capture type dropdown styling */
+.capture-type {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Remove capture button styling */
+.remove-capture {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Generated regex display styling */
+#generated-regex {
+  background-color: #e9ecef;
+  padding: 10px;
+  border-radius: 4px;
+  font-family: monospace;
+  overflow-x: auto;
+}
+
+/* Preview section styling */
+#preview {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+/* Highlight styling for matched text */
+.highlight {
+  background-color: yellow;
+}
+
+/* Error styling */
+.error {
+  color: red;
+}
+
+/* Error display box styling */
+.error-display {
+  color: #dc3545;
+  background: #f8d7da;
+  border: 2px solid #f5c6cb;
+  border-radius: 4px;
+  padding: 12px;
+  margin: 10px 0;
+  font-size: 0.95em;
+}
+
+/* Debug information styling */
+.debug-info {
+  color: #6c757d;
+  font-size: 0.85em;
+  padding: 6px;
+  border-top: 1px dashed #dee2e6;
+}
+
+/* Export button styling */
+.export-button {
+  background: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.export-button:hover {
+  background: #218838;
+}
+
+.export-button i {
+  margin-right: 8px;
+}
+
+/* Modern UI styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* Enhanced container styling */
+.container {
+  width: 90%;
+  max-width: 960px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Context menu styling */
+.context-menu {
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  display: none; /* Hidden by default */
+  z-index: 1000;
+}
+
+.context-menu-item {
+  padding: 8px 15px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.context-menu-item:hover {
+  background-color: #f0f0f0;
+}
+
+/* Regex keyboard styling */
+.regex-keyboard {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid #ddd;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  width: auto;
+  min-width: 300px;
+}
+
+/* Regex key button styling */
+.regex-key {
+  padding: 10px 14px;
+  border: 1px solid #007bff;
+  background-color: #e7f0ff;
+  cursor: pointer;
+  font-family: monospace;
+  font-size: 15px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.regex-key:hover {
+  background-color: #d0e0ff;
+  transform: scale(1.05);
+}
+
+/* Copy button styling */
+.copy-button {
+  background: #17a2b8;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-left: 10px;
+}
+
+.copy-button:hover {
+  background: #138496;
+}
+
+.copy-button i {
+  margin-right: 8px;
+}
+
+/* User parameters section styling */
+#user-parameters {
+  margin-bottom: 20px;
+}
+
+.parameter-group {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+}
+
+.parameter-group label {
+  display: inline-block;
+  margin-right: 10px;
+  font-weight: 500;
+}
+
+.parameter-group select {
+  padding: 6px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  background-color: white;
+}
+
+.parameter-description {
+  margin-top: 8px;
+  font-size: 0.9em;
+  color: #6c757d;
+  font-style: italic;
+}
+
+/* Text selection bound markers */
+.left-bound-marker,
+.right-bound-marker {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 8px solid blue;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.left-bound-marker::after,
+.right-bound-marker::after {
+  position: absolute;
+  top: 8px;
+  left: -10px;
+  font-size: 10px;
+  color: blue;
+  white-space: nowrap;
+}
+
+.left-bound-marker::after {
+  content: 'Left';
+}
+
+.right-bound-marker::after {
+  content: 'Right';
+}
+
+/* Button Styles */
+:root {
+  --bg-color-1: #121212;
+  --bg-color-2: #FFD433;
+  --bg-color-3: #FF90E8;
+  --padding: 0.75rem 1.5rem;
+  --font-family: system-ui, -apple-system, sans-serif;
+  --step: 0.25rem;
+}
+
+.action-button {
+  --active: 0;
+  color: white;
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+  font-family: var(--font-family);
+  font-weight: bold;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0.5rem;
+}
+
+.action-button span:first-of-type {
+  padding: var(--padding);
+}
+
+.action-button span:not(:first-of-type) {
+  position: absolute;
+}
+
+.action-button [aria-hidden] { 
+  color: transparent; 
+}
+
+.action-button span {
+  inset: 0;
+  display: grid;
+  background: var(--bg);
+  place-items: center;
+  transition: 0.2s ease;
+  border: 2px solid black;
+  translate:
+    calc((var(--active) * var(--coefficient, 0)) * (var(--step) * -1))
+    calc((var(--active) * var(--coefficient, 0)) * (var(--step) * -1));
+}
+
+.action-button span:nth-of-type(1) {
+  --bg: var(--bg-color-3);
+}
+
+.action-button span:nth-of-type(2) {
+  --coefficient: 1;
+  --bg: var(--bg-color-2);
+}
+
+.action-button span:nth-of-type(3) {
+  --coefficient: 2;
+  --bg: var(--bg-color-1);
+}
+
+.action-button:is(:hover, :focus-visible) {
+  --active: 1;
+}
+
+.action-button:active {
+  --active: 0.5;
+}
+
+/* Specific button colors */
+#add-capture {
+  --bg-color-1: #2c974b;
+  --bg-color-2: #3fb950;
+  --bg-color-3: #46954a;
+}
+
+.remove-button {
+  --bg-color-1: #cf222e;
+  --bg-color-2: #dc3545;
+  --bg-color-3: #ff4d4d;
+}
+
+.export-button {
+  --bg-color-1: #1a7f37;
+  --bg-color-2: #2ea043;
+  --bg-color-3: #3fb950;
+}
+
+.copy-button {
+  --bg-color-1: #4969e1;
+  --bg-color-2: #6e87e8;
+  --bg-color-3: #8ba4ff;
+}
+
+#regex-keyboard-close {
+  --bg-color-1: #dc3545;
+  --bg-color-2: #e35d6a;
+  --bg-color-3: #ea858f;
+  position: absolute;
+  top: -40px;
+  right: 0;
+  padding: 5px 10px;
+}
